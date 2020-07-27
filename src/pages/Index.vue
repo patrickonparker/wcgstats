@@ -13,7 +13,8 @@
 					>
 						<q-card style="background: rgba(0, 100, 157, 0.3);">
 							<q-card-section class="row justify-between">
-								<span>{{ device[0] }}: </span><span>{{ device[1] }}</span>
+								<span>{{ device[0] }}: </span>
+								<span>{{ device[1] }} ({{ devicePercent(device[1]) }}%)</span>
 							</q-card-section>
 						</q-card>
 					</div>
@@ -56,6 +57,9 @@
 					),
 					data = await response.json();
 				this.results = data.ResultsStatus.Results;
+			},
+			devicePercent(input) {
+				return Math.floor((input / this.results.length) * 100);
 			},
 		},
 		mounted() {
