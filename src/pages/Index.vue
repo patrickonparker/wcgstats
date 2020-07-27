@@ -3,7 +3,7 @@
 		<Graph v-if="results.length" :results="results" />
 		<div class="q-layout-padding" style="max-width: 1920px; margin: 0 auto;">
 			<div v-if="results.length">
-				<h1 class="text-h4">Results Available: {{ results.length }}</h1>
+				<h1 class="text-h4">{{ results.length }} Results Available</h1>
 				<h2 class="text-h5 q-mb-sm">Devices</h2>
 				<div class="row q-col-gutter-md q-mb-lg">
 					<div
