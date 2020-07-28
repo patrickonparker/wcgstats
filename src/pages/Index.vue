@@ -51,7 +51,7 @@
 						]"
 						:key="n"
 					>
-						<h3 class="text-h6 q-mb-sm">{{ set[0] }}</h3>
+						<h3 class="text-h6 q-mb-sm">{{ set[0] }} ({{ set[1].length }})</h3>
 						<div class="row q-col-gutter-md">
 							<div
 								v-for="(result, n) in set[1]"
