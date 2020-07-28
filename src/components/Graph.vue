@@ -102,11 +102,12 @@
 		position: absolute;
 		bottom: 0;
 		width: 100%;
-		background: #00649d;
+		background: var(--q-color-secondary);
+		opacity: 0.66;
 	}
 
 	.value .bar.valid {
 		background: var(--q-color-positive);
-		opacity: 0.33;
+		opacity: 0.5;
 	}
 </style>
