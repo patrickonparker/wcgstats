@@ -57,9 +57,7 @@
 				days.forEach((val) => {
 					maxVals.push(val[1].count);
 				});
-				console.log(maxVals);
 				let max = Math.max(...maxVals);
-				console.log(max);
 				return {
 					last5: days,
 					max: max,
