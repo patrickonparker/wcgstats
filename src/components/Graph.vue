@@ -103,11 +103,10 @@
 		bottom: 0;
 		width: 100%;
 		background: #00649d;
-		opacity: 0.75;
 	}
 
 	.value .bar.valid {
 		background: var(--q-color-positive);
-		opacity: 0.5;
+		opacity: 0.33;
 	}
 </style>
