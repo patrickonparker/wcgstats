@@ -1,6 +1,6 @@
 <template>
 	<q-page style="padding-top: 0; position: relative;">
-		<Graph v-if="results.length" :results="results" />
+		<Graph v-if="filtered.length" :results="filtered" />
 		<div class="q-layout-padding" style="max-width: 1920px; margin: 0 auto;">
 			<div v-if="results.length">
 				<h1 class="text-h4">{{ results.length }} Results Available</h1>
@@ -176,7 +176,7 @@
 		cursor: pointer;
 	}
 
-	.device:hover {
+	.desktop .device:hover {
 		background: rgba(0, 100, 157, 0.15);
 	}
 
