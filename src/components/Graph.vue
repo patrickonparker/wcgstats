@@ -17,6 +17,12 @@
 			<div class="gt-sm subtitle-1">
 				{{ formatDate(day[0]) }}: <b>{{ day[1].count }}</b>
 			</div>
+			<q-tooltip
+				:offset="[0, 10]"
+				:content-style="{ background: 'var(--q-color-secondary)' }"
+			>
+				{{ day[1].count }} sent, {{ day[1].valid }} validated.
+			</q-tooltip>
 		</div>
 	</div>
 </template>

@@ -7,9 +7,14 @@
 			:src="'https://worldcommunitygrid.org' + projects[result.AppName].image"
 		>
 			<div class="absolute-full column no-wrap justify-end">
-				<div class="text-subtitle1">
+				<a
+					class="text-subtitle1 text-white"
+					style="text-decoration: none;"
+					:href="`https://www.worldcommunitygrid.org/research/${result.AppName}/overview.do`"
+					target="_blank"
+				>
 					{{ projects[result.AppName].name }}
-				</div>
+				</a>
 				<div
 					v-if="result.Outcome === 0 && result.ValidateState === 0"
 					class="row align-center q-my-xs"
