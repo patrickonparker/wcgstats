@@ -10,6 +10,11 @@
 			<q-card class="q-pb-sm" style="max-width: 600px; margin: 2rem auto;">
 				<q-card-section>
 					<h1 class="text-h4 q-mt-none">Contact</h1>
+					<p>
+						I'm trying to build a quality app to give back to the fantastic
+						people who make World Community Grid so awesome. If you find any
+						bugs or need support, please let me know!
+					</p>
 					<q-input
 						filled
 						name="Name"
