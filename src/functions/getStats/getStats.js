@@ -3,7 +3,8 @@ const fetch = require("node-fetch");
 exports.handler = async function(event, context) {
   let user = await event.queryStringParameters.user;
   let auth = await event.queryStringParameters.auth;
-  let url = `https://www.worldcommunitygrid.org/api/members/${user}/results?code=${auth}&limit=1000`;
+  let offset = await event.queryStringParameters.offset;
+  let url = `https://www.worldcommunitygrid.org/api/members/${user}/results?code=${auth}&limit=250&offset=${offset}`;
 
   try {
     const response = await fetch(url, {

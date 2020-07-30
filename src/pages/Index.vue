@@ -44,23 +44,29 @@
 				<div v-else>
 					<div
 						v-for="(set, n) in [
-							['In Progress', progress],
-							['Pending Validation', pending],
-							['Validated', validated],
-							['Error', error],
+							['In Progress', progress, true],
+							['Pending Validation', pending, false],
+							['Validated', validated, false],
+							['Error', error, false],
 						]"
 						:key="n"
 					>
-						<h3 class="text-h6 q-mb-sm">{{ set[0] }} ({{ set[1].length }})</h3>
-						<div class="row q-col-gutter-md">
-							<div
-								v-for="(result, n) in set[1]"
-								:key="n"
-								class="col-xs-12 col-sm-6 col-md-4 col-lg-3"
-							>
-								<Result :result="result" />
+						<q-expansion-item
+							expand-separator
+							:label="`${set[0]} (${set[1].length})`"
+							:default-opened="set[2]"
+							class="result-category"
+						>
+							<div class="row q-col-gutter-md">
+								<div
+									v-for="(result, n) in set[1]"
+									:key="n"
+									class="col-xs-12 col-sm-6 col-md-4 col-lg-3"
+								>
+									<Result :result="result" />
+								</div>
 							</div>
-						</div>
+						</q-expansion-item>
 					</div>
 				</div>
 			</div>
@@ -97,14 +103,42 @@
 			results: {},
 			filter: "",
 			sort: true,
+			available: undefined,
 		}),
 		methods: {
-			async fetchStats() {
-				let response = await fetch(
-						`.netlify/functions/getStats?user=${this.user}&auth=${this.auth}`
-					),
-					data = await response.json();
-				this.results = data.ResultsStatus.Results;
+			fetchStats() {
+				let results = [];
+
+				const getResults = async () => {
+					let response = await fetch(
+							`.netlify/functions/getStats?user=${this.user}&auth=${this.auth}&offset=0`
+						),
+						data = await response.json();
+					data.ResultsStatus.Results.forEach((result) => results.push(result));
+					this.available = data.ResultsStatus.ResultsAvailable;
+					getMoreResults();
+				};
+				getResults();
+
+				const getMoreResults = async () => {
+					if (this.available > 250) {
+						let available = this.available < 1000 ? this.available : 1000;
+						let totalRounds = Math.ceil(available / 250);
+
+						for (var i = 1; i < totalRounds; i++) {
+							let response = await fetch(
+									`.netlify/functions/getStats?user=${this.user}&auth=${this.auth}&offset=${i}`
+								),
+								data = await response.json();
+							data.ResultsStatus.Results.forEach((result) =>
+								results.push(result)
+							);
+						}
+					}
+				};
+				getMoreResults();
+
+				this.results = results;
 			},
 			devicePercent(input) {
 				return Math.round((input / this.results.length) * 100);
@@ -188,5 +222,11 @@
 		position: relative;
 		top: 7px;
 		right: -10px;
+	}
+
+	.result-category .q-item {
+		padding-left: 0;
+		padding-right: 0;
+		font-size: 1.2rem;
 	}
 </style>

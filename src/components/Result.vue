@@ -7,6 +7,7 @@
 			:src="'https://worldcommunitygrid.org' + projects[result.AppName].image"
 		>
 			<div class="absolute-full column no-wrap justify-end">
+				<div class="text-caption">{{ result.Name }}</div>
 				<a
 					class="text-subtitle1 text-white"
 					style="text-decoration: none;"
@@ -19,7 +20,7 @@
 					v-if="result.Outcome === 0 && result.ValidateState === 0"
 					class="row align-center q-my-xs"
 				>
-					<q-icon name="cached" color="info" class="q-mr-xs rotate" />
+					<q-icon name="cached" color="info" class="q-mr-xs" />
 					<b class="text-info" style="line-height: 1;">In Progress</b>
 				</div>
 				<div
@@ -128,7 +129,7 @@
 		}
 	}
 
-	.rotate {
-		animation: rotate 4s infinite linear;
-	}
+	/* .rotate {
+						animation: rotate 4s infinite linear;
+					} */
 </style>
