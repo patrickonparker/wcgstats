@@ -6,7 +6,8 @@
   "author": "James Lovallo <patrickonparker@gmail.com>",
   "private": true,
   "scripts": {
-    "publish": "quasar b && ntl deploy --prod"
+    "dev": "ntl dev",
+    "deploy": "quasar b && ntl deploy --prod"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",

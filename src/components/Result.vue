@@ -7,7 +7,6 @@
 			:src="'https://worldcommunitygrid.org' + projects[result.AppName].image"
 		>
 			<div class="absolute-full column no-wrap justify-end">
-				<div class="text-caption">{{ result.Name }}</div>
 				<a
 					class="text-subtitle1 text-white"
 					style="text-decoration: none;"
@@ -54,10 +53,10 @@
 				</div>
 				<div class="flex justify-between text-caption">
 					<div v-if="result.Outcome === 0">
-						Due Date: {{ formatDate(result.ReportDeadline) }}
+						Due: {{ formatDate(result.ReportDeadline) }}
 					</div>
 					<div v-else>Sent: {{ formatDate(result.SentTime) }}</div>
-					<div>Device: {{ result.DeviceName }}</div>
+					<div>{{ result.Name }}</div>
 				</div>
 			</div>
 		</q-img>
@@ -113,7 +112,7 @@
 		},
 		methods: {
 			formatDate(input) {
-				return date.formatDate(input, "MMMM Do");
+				return date.formatDate(input, "MMM Do");
 			},
 		},
 	};
@@ -130,6 +129,6 @@
 	}
 
 	/* .rotate {
-						animation: rotate 4s infinite linear;
-					} */
+											animation: rotate 4s infinite linear;
+										} */
 </style>
