@@ -17,7 +17,7 @@
 		data: () => ({ timeout: 5 }),
 		mounted() {
 			setInterval(() => {
-				// if (this.timeout === 0) this.$router.push("/");
+				if (this.timeout === 0) this.$router.push("/");
 				this.timeout--;
 			}, 1000);
 		},
