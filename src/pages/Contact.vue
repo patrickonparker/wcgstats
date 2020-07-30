@@ -46,7 +46,7 @@
 					<input
 						type="hidden"
 						name="_next"
-						value="https://wcgstats.netlify.app/"
+						value="https://wcgstats.netlify.app/thanks"
 					/>
 				</q-card-section>
 				<q-card-actions>
