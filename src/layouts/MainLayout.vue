@@ -18,9 +18,24 @@
 					</span>
 				</div>
 				<q-space />
-				<q-btn to="/contact" icon="message" color="white" flat round />
 				<q-btn
-					v-if="route != '/account'"
+					color="white"
+					flat
+					rounded
+					icon="message"
+					to="/contact"
+					class="gt-sm"
+					label="Contact"
+				/>
+				<q-btn
+					color="white"
+					flat
+					round
+					icon="message"
+					to="/contact"
+					class="lt-md"
+				/>
+				<q-btn
 					color="white"
 					flat
 					rounded
@@ -30,7 +45,6 @@
 					:label="user"
 				/>
 				<q-btn
-					v-if="route != '/account'"
 					color="white"
 					flat
 					round
