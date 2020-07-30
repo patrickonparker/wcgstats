@@ -33,7 +33,7 @@
 					round
 					icon="message"
 					to="/contact"
-					class="lt-md"
+					class="lt-md hide-on-tiny"
 				/>
 				<q-btn
 					color="white"
@@ -80,3 +80,11 @@
 		},
 	};
 </script>
+
+<style>
+	@media (max-width: 374px) {
+		.hide-on-tiny {
+			display: none;
+		}
+	}
+</style>
