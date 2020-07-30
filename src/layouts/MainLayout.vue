@@ -5,7 +5,11 @@
 				:class="$q.dark.isActive ? 'bg-black text-white' : 'text-black'"
 			>
 				<q-img src="~/assets/logo.png" width="40px" />
-				<div class="column q-ml-sm">
+				<div
+					class="column q-ml-sm"
+					@click="$router.push('/')"
+					style="cursor: pointer;"
+				>
 					<span style="margin-bottom: -6px;" class="text-subtitle1 text-bold">
 						World Community Grid
 					</span>
