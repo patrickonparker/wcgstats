@@ -14,6 +14,7 @@
 					</span>
 				</div>
 				<q-space />
+				<q-btn to="/contact" icon="message" color="white" flat round />
 				<q-btn
 					v-if="route != '/account'"
 					color="white"
